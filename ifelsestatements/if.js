@@ -1,0 +1,10 @@
+const {kavali}=require("./vote.js");
+const prompt=require("prompt-sync")();
+var a=prompt("enter first number:");
+var b=prompt("enter the gender:");
+var c=prompt("enter the time:");
+console.log(kavali.evenodd(a));
+console.log(kavali.voterlist(a,b));
+console.log(kavali.div(a));
+console.log(kavali.displaytime(c));
+console.log(kavali.posneg(a));
