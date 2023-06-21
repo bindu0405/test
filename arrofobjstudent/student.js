@@ -17,7 +17,7 @@ var updateObjectValue=(student,stu)=>{
         }
         if(flag){
             student.push(stu[i]);  
-          }
+        }
 
     }
     return student;

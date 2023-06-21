@@ -33,3 +33,7 @@ fs.appendFile('mod.js','hello world!',function(err){
     else
     console.log('append operation complete'); 
 });
+
+
+// rest apis ---->   http methods --->   get,post,put,delete-->
+//  studnet project

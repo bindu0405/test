@@ -21,14 +21,14 @@ for(i=0;i<num;i++){
   )
 
 
-let newarr=[];
+
+  
+
     if(i%2==0){
       console.log("----------");
       console.log(dom[i]);
     }
-    newarr.push(dom[i]);
-
-   console.log(newarr); 
+    
     
 }
 //console.log(newarr);
