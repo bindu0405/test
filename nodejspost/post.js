@@ -1,5 +1,5 @@
 const http=require('http');
-const {parse}=require('json');
+const {parse}=require('querystring');
 
 const server=http.createServer((req,res)=>{
     if(req.method==='POST'){ 
@@ -8,8 +8,8 @@ const server=http.createServer((req,res)=>{
             body.push(chunk);
         })
         req.on('end',()=>{
-           bod = Buffer.concat(body).toJSON;
-           res.end(bod);
+           bod = Buffer.concat(body).toString();
+           res.end(bod.toString());
            res.end('details submitted.')
         })
     }

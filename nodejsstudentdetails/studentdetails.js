@@ -34,12 +34,12 @@ const server = http.createServer((req, res) => {
         //[studentName=ravi,id=2,rollName=12,class="CSE"]
         //[studenName,ravi],[id,2]
          for(let i=0;i<arr.length;i++){
-             let  splitArray = arr[i].split('&');
+             let  splitArray= arr[i].split('&');
                    let Object={
-                       name:splitArray[0].split("=")[1],
-                       id:splitArray[1].split("=")[1],
-                       emailID:splitArray[2].split("=")[1],
-                       mobile:splitArray[3].split("=")[1]
+                       StudentName:splitArray[0].split("=")[1],
+                       IdNo:splitArray[1].split("=")[1],
+                       EmailID:splitArray[2].split("=")[1],
+                       MobileNo:splitArray[3].split("=")[1]
              }
              newarr.push(Object);
               
@@ -58,7 +58,7 @@ const server = http.createServer((req, res) => {
            <lable>IdNo:</lable>
            <input type="number" id="idno" name="IdNo"><br></br>
            <lable>EmailId</lable>
-           <input type="text" id="emailid" name="EmailId"><br></br>
+           <input type="email" id="emailid" name="EmailId"><br></br>
            <lable>MobileNo:</lable>
            <input type="number" id="mobileno" name="MobileNo"><br></br>
 
