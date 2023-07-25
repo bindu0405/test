@@ -8,9 +8,7 @@ const server = http.createServer((req, res) => {
         body += chunk.toString();
     });
     req.on('end', () => {
-        console.log(
-            parse(body)
-        );
+        console.log(parse(body));
         res.end('ok');
     });
     } 
