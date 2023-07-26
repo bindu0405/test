@@ -1,10 +1,12 @@
 var express=require("express");
+var bodyParser = require('body-parser');
 var app=express();
 var arr=[]
 var arr1=[]
 var farr1=[]
 var newarr=[]
 var newarr1=[]
+var newarr2=[]
 
 var bodyParser=require("body-parser");
 app.use(bodyParser.urlencoded({extended:false}));
@@ -16,7 +18,7 @@ app.get('/update', function (req,res){
     res.sendFile('index.html', { root: __dirname });
 });
 app.get('/delete', function (req,res){
-    res.sendFile('index.html', { root:__dirname });
+    res.sendFile('in.html', { root:__dirname });
 });
 
 app.post('/submitlogindetails', function(req,res){
@@ -38,7 +40,7 @@ app.post('/submitlogindetails', function(req,res){
         arr1.push(object);
         console.log(arr1)
         const ids = arr1.map(({ username }) => username);
-const farr1 = arr1.filter(({ username }, index) =>
+         farr1 = arr1.filter(({ username }, index) =>
     !ids.includes(username, index + 1));
  
 console.log(farr1);
@@ -66,26 +68,49 @@ app.post('/updatedetails', function (req,res){
     newarr1.push(Object);
     console.log(newarr1)
 
-
 res.end(JSON.stringify(newarr1));
 
 
     res.end('updating details!');
-    //newarr.pop();
+    
+
+});
+app.post('/deletedetails', function (req,res){
+    newarr.push(req.body.username);
+    res.send(newarr);
+    console.log(newarr);
+    let splitnewarr=newarr[0].split(' ');
+    console.log(splitnewarr);
+    let Object={
+        username:splitnewarr[0]
+    
+
+    }
+    console.log(Object)
+    newarr2.push(Object);
+    console.log(newarr2)
+
+res.end(JSON.stringify(newarr2));
+
+
+    res.end('updating details!');
+    
 
 });
 
+
 app.get('/updatedata', function(req,res){
      var updatearr=[]
-    //req.updatearr=(farr1, newarr1=>{
     
+    //console.log(farr1,"++++++++++++++++++=");
+    //console.log("123");
     for(let i=0;i<farr1.length;i++){
        if(farr1[i].username==newarr1[0].username){
-           farr1[i].emailid=req.body.newarr1[0].emailid;  
-           farr1[i].password=req.body.newarr1[0].password;                               
-           updatearr.push(farr1);
+           farr1[i].emailid=newarr1[0].emailid;  
+           farr1[i].password=newarr1[0].password;                               
+           updatearr.push(farr1[i]);
            console.log(updatearr);
-           farr1=updatearr;
+           
             
        }
 
@@ -97,20 +122,25 @@ app.get('/updatedata', function(req,res){
     res.send(updatearr);
     newarr1.pop();
 });
+//console.log(farr1);
+
 app.get('/deletedata', function(req,res){
+    //console.log(farr1,"ghujihyghuj");
+    //console.log(newarr1);
     let uparr=[]
 
     let flag=true;
-      for(let i=0;i<arr.length;i++){
-       if(arr[i].username==newarr[0].username){
+      for(let i=0;i<farr1.length;i++){
+       if(farr1[i].username==newarr2[0].username){
         flag=false;
         }
         else{
-            uparr.push(arr[i])
+            uparr.push(farr1[i])
         }
+        console.log(uparr);
 
     }  
-    arr = uparr;
+    
 
     res.send(uparr);
 });
