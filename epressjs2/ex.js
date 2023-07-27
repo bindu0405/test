@@ -101,32 +101,25 @@ res.end(JSON.stringify(newarr2));
 
 app.get('/updatedata', function(req,res){
      var updatearr=[]
-    
-    //console.log(farr1,"++++++++++++++++++=");
-    //console.log("123");
     for(let i=0;i<farr1.length;i++){
        if(farr1[i].username==newarr1[0].username){
            farr1[i].emailid=newarr1[0].emailid;  
            farr1[i].password=newarr1[0].password;                               
            updatearr.push(farr1[i]);
-           console.log(updatearr);
-           
+           console.log(updatearr);         
             
        }
 
     }
-     
-
-    //})  
+ 
 
     res.send(updatearr);
     newarr1.pop();
 });
-//console.log(farr1);
+
 
 app.get('/deletedata', function(req,res){
-    //console.log(farr1,"ghujihyghuj");
-    //console.log(newarr1);
+    
     let uparr=[]
 
     let flag=true;
