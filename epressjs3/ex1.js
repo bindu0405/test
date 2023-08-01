@@ -1,10 +1,10 @@
-exports.commonService={arr,
+exports.commonService={arr,                    
     updatearr,
     deletearr
 }
 
 let array=[]
-async function arr(req){
+async function arr(req){            //callback function
     console.log(req)
     console.log(req.id)
     obj={
@@ -32,9 +32,7 @@ async function updatearr(req){
     }
     if(flag){
         res.push("file not found!")
-    }
-
-     
+    }     
     console.log(res)
     return res;     
 }
