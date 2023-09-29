@@ -20,14 +20,22 @@ arr.push({
 })
 }
 console.log(arr);
-arr.sort(function(a,b){return b.id-a.id});
+arr.sort(function(a,b){return b.id-a.id});            //desending order
 console.log(arr);
-
-/*const filteredarr=arr.filter((obj, index) => {
-    if(index>4){
-        return arr;
-    }    
-})
-console.log(filteredarr)*/
-arr.pop();
+console.log(arr.length)
+for(let i=num;i>=arr.length;i--){
+    //console.log(arr,"======")
+    if(arr.length>5){
+        arr.reverse()
+        const result = arr.filter((obj, index)=>{
+            if(index<5){
+                return obj;
+            }
+        });
+        console.log(result);
+    }
+    else{  
+    console.log(arr); 
+    } 
+}
 

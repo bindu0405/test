@@ -4,9 +4,9 @@ function perfectSquare(num, callback){                //example for callback fun
     const bool=Number.isInteger(Math.sqrt(num)) 
 
     if(!bool){
-        return callback('number ${number} is not a perfect square')
+        return callback( 'is not a perfect square')
     }   
-callback('number ${number} is perfect square')
+callback('is perfect square')
 }
 function callback(data){
   console.log(data)
